@@ -1,0 +1,19 @@
+#In this SQL code, I'm creating a table and querying the database to modify with "update" and "delete" functions
+
+CREATE TABLE ice_cream_flavors (id INTEGER PRIMARY KEY, flavor TEXT, toppings TEXT, time_of_day TEXT, mood TEXT);
+
+INSERT INTO ice_cream_flavors VALUES (1, "chocolate", "chocolate syrup", "evening", "tired");
+INSERT INTO ice_cream_flavors VALUES (2, "vanilla", "sprinkles and bananas", "mid day", "happy");
+INSERT INTO ice_cream_flavors VALUES (3, "cookies and cream", "chocolate syrup and whipped cream", "evening", "excited");
+INSERT INTO ice_cream_flavors VALUES (4, "neopolitan", "crushed potatoe chips", "mid morning", "sluggish");
+INSERT INTO ice_cream_flavors VALUES (5, "rocky road", "whipped cream", "late night", "bored");
+
+SELECT * FROM ice_cream_flavors;
+
+UPDATE ice_cream_flavors SET time_of_day = "evening" WHERE id = 5;
+
+SELECT * FROM ice_cream_flavors;
+
+DELETE FROM ice_cream_flavors WHERE id = 4;
+
+SELECT * FROM ice_cream_flavors;
