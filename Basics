@@ -1,0 +1,30 @@
+#In this SQL code, I'm creating and quering a store database arranged by ID, types of items, aisle number, color, and prices.
+
+#Raw data
+INSERT INTO inventory VALUES (1, "Shirts", 4, "Red", 15);
+INSERT INTO inventory VALUES (2, "Shoes", 2, "Blue", 22);
+INSERT INTO inventory VALUES (3, "Bags", 6, "Green", 17);
+INSERT INTO inventory VALUES (4, "Hats", 3, "Yellow", 11);
+INSERT INTO inventory VALUES (5, "Dresses", 8, "Black", 30);
+INSERT INTO inventory VALUES (6, "Socks", 2, "White", 8);
+INSERT INTO inventory VALUES (7, "Pants", 7, "Blue", 44);
+INSERT INTO inventory VALUES (8, "Shorts", 7, "Blue", 25);
+INSERT INTO inventory VALUES (9, "Skirts", 5, "Black", 22);
+INSERT INTO inventory VALUES (10, "Heels", 2, "Gray", 45);
+INSERT INTO inventory VALUES (11, "Blouses", 5, "Pink", 24);
+INSERT INTO inventory VALUES (12, "Jackets", 1, "Black", 58);
+INSERT INTO inventory VALUES (13, "Belts", 3, "Black", 32);
+INSERT INTO inventory VALUES (14, "Leggings", 7, "Black", 23);
+INSERT INTO inventory VALUES (15, "Scarves", 3, "White", 21);
+
+#ascending price values
+SELECT * FROM inventory ORDER BY price;
+
+#ascending aisle ordering
+SELECT item, color, price FROM inventory ORDER By aisle;
+
+#Selecting items only in aisles greater than 4
+SELECT item, color, aisle, price FROM inventory WHERE aisle > 4;
+
+#Selecting all black items with its prices
+SELECT item, price FROM inventory WHERE color = "Black";
