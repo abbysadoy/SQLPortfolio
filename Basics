@@ -1,4 +1,4 @@
-#In this SQL code, I'm creating and quering a store database arranged by ID, types of items, aisle number, color, and prices.
+#In this SQL code, I'm creating and querying a store database arranged by ID, types of items, aisle number, color, and prices, answering the following questions.
 
 #Raw data
 INSERT INTO inventory VALUES (1, "Shirts", 4, "Red", 15);
@@ -17,14 +17,14 @@ INSERT INTO inventory VALUES (13, "Belts", 3, "Black", 32);
 INSERT INTO inventory VALUES (14, "Leggings", 7, "Black", 23);
 INSERT INTO inventory VALUES (15, "Scarves", 3, "White", 21);
 
-#ascending price values
+#What do the prices look like from least to most?
 SELECT * FROM inventory ORDER BY price;
 
-#ascending aisle ordering
+#How are items ordered by aisle?
 SELECT item, color, price FROM inventory ORDER By aisle;
 
-#Selecting items only in aisles greater than 4
+#What items are in the second half of the store?
 SELECT item, color, aisle, price FROM inventory WHERE aisle > 4;
 
-#Selecting all black items with its prices
+#What inventory do we have in black?
 SELECT item, price FROM inventory WHERE color = "Black";
