@@ -1,4 +1,4 @@
-#In this SQL code, I'm creating and querying a table with a list of famous people, their best work, and list of collaborations
+#In this SQL code, I'm creating and querying a table with a list of famous people, their best work, list of collaborations, and commentary assignments
 
 CREATE TABLE famous_people (id INTEGER PRIMARY KEY, name TEXT, occupation TEXT);
 
