@@ -1,4 +1,4 @@
-#In this SQL code, I'm querying an existing databse that's holding data about 100 of the most successful movies at the box office to answer the following questions
+#In this SQL code, I'm querying an existing database that's holding data about 100 of the most successful movies at the box office to answer the following questions
 
 #1. What are the averages of the worldwide and domestic gross?
 SELECT AVG (worldwide), AVG (domestic) FROM topmovies;
