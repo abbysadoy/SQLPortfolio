@@ -1,0 +1,49 @@
+#In this SQL code, I'm creating and querying a table with a list of famous people, their best work, and list of collaborations
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY, name TEXT, occupation TEXT);
+
+INSERT INTO famous_people VALUES (1, "Leonardo Dicaprio", "actor");
+INSERT INTO famous_people VALUES (2, "Beyonce", "singer");
+INSERT INTO famous_people VALUES (3, "Michael Jordan", "athlete");
+INSERT INTO famous_people VALUES (4, "Mark Cuban", "entrepreneur");
+INSERT INTO famous_people VALUES (5, "Lizzo", "singer");
+INSERT INTO famous_people VALUES (6, "Daniel Craig", "actor");
+INSERT INTO famous_people VALUES (7, "Lebron James", "athlete");
+INSERT INTO famous_people VALUES (8, "Warren Buffet", "entrepreneur");
+
+CREATE TABLE best_work (id INTEGER PRIMARY KEY, name TEXT, work TEXT);
+
+INSERT INTO best_work VALUES (1, "Leonardo Dicaprio", "The Departed");
+INSERT INTO best_work VALUES (2, "Beyonce", "Lemonade");
+INSERT INTO best_work VALUES (3, "Michael Jordan", "Chicago Bulls");
+INSERT INTO best_work VALUES (4, "Mark Cuban", "Shark Tank");
+INSERT INTO best_work VALUES (5, "Lizzo", "Truth Hurts");
+INSERT INTO best_work VALUES (6, "Daniel Craig", "James Bond");
+INSERT INTO best_work VALUES (7, "Lebron James", "Los Angeles Lakers");
+INSERT INTO best_work VALUES (8, "Warren Buffet", "Berkshire Hathaway");
+
+CREATE TABLE collaborations (id INTEGER PRIMARY KEY AUTOINCREMENT, pair1_id INTEGER, pair2_id INTEGER);
+INSERT INTO collaborations (pair1_id, pair2_id) VALUES (2, 5);
+INSERT INTO collaborations (pair1_id, pair2_id) VALUES (1, 4);
+INSERT INTO collaborations (pair1_id, pair2_id) VALUES (3, 6);
+INSERT INTO collaborations (pair1_id, pair2_id) VALUES (7, 8);
+
+CREATE TABLE commentary (id INTEGER PRIMARY KEY AUTOINCREMENT,pair1_id INTEGER, pair2_id INTEGER);
+INSERT INTO commentary (pair1_id, pair2_id) VALUES (5, 2);
+INSERT INTO commentary (pair1_id, pair2_id) VALUES (1, 7);
+INSERT INTO commentary (pair1_id, pair2_id) VALUES (3, 8);
+INSERT INTO commentary (pair1_id, pair2_id) VALUES (4, 6);
+
+#Which celebreties have been paired together for a new project?
+SELECT a.name, b.name FROM collaborations 
+    JOIN famous_people a 
+    ON collaborations.pair1_id = a.id 
+    JOIN famous_people b 
+    ON pair2_id = b.id;
+
+#Which celebrities will be commenting on which other celebrity's best work?
+SELECT a.name, b.work FROM commentary
+    JOIN best_work a
+    ON commentary.pair1_id = a.id
+    JOIN best_work b
+    ON commentary.pair2_id = b.id;
